@@ -1,0 +1,47 @@
+int readInput() {
+    print("Give a number: ");
+    return scanInt();
+}
+
+void main() {
+    int randomNumber;
+    int youWon;
+    int input;
+    int tries;
+    int triesLeft;
+    
+    triesLeft = 5;
+
+    print("You're playing the game 'Guess the Number'!\n");
+    print("You have ");
+    print(triesLeft);
+    print(" tries.\n");
+
+    randomNumber = random(10);
+    tries = 0;
+    youWon = 0; /* FALSE */
+
+    while (tries < triesLeft) {
+        input = readInput();
+        if (input == randomNumber) {
+            print("Congratulations, you found the number!\n");
+            youWon = 1; /* TRUE */
+            break;
+        } else if (randomNumber < input) {
+            print("The number is lower than the number you gave!\n");
+        } else {
+            print("The number is larger than the number you gave!\n");
+        }
+        
+        tries = tries + 1;
+    }
+
+    if (youWon == 0) {
+        print("You lost the game. I'm very sad. :( \n");
+        print("The number was ");
+        print(randomNumber);
+        print("\n");
+        print("If you want, try again.\n");
+    }
+
+}

@@ -1,0 +1,9 @@
+/*This will not work*/
+
+int scanInt() {
+	return 2;
+}
+
+void main() {
+	scanInt();
+}

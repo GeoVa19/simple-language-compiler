@@ -1,0 +1,70 @@
+/*Source: https://www.geeksforgeeks.org/quick-sort/*/
+int partition(int[] arr, int low, int high)    {
+    int pivot;
+    pivot = arr[high]; 
+    int i;
+    i = low - 1;
+
+    int j;
+    j = low;
+    while (j < high) {
+        if (arr[j] <= pivot) {
+            i = i + 1;
+
+            int temp;
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        j = j + 1;
+    }
+ 
+    int temp;
+    temp = arr[i+1];
+    arr[i+1] = arr[high];
+    arr[high] = temp;
+ 
+    return i + 1;
+}
+
+void sort(int[] arr, int low, int high) {
+    if (low < high) {
+        int pi;
+        pi = partition(arr, low, high);
+ 
+        sort(arr, low, pi-1);
+        sort(arr, pi+1, high);
+    }
+}
+
+void main() {
+    int[] array;
+    int arraySize;
+    arraySize = 5;
+    array = new int[5];
+
+    int i;
+    i = 0;
+    while (i < arraySize) {
+        array[i] = random(100);
+        i = i + 1;
+    }
+
+    print("Before quick sort\n");
+    i = 0;
+    while (i < arraySize) {
+        print(array[i]);
+        print("\n");
+        i = i + 1;
+    }
+
+    sort(array, 0, arraySize - 1);
+
+    print("After quick sort\n");
+    i = 0;
+    while (i < arraySize) {
+        print(array[i]);
+        print("\n");
+        i = i + 1;
+    }
+}

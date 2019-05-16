@@ -1,0 +1,78 @@
+void selection_sort(int[] a, int arraySize) {
+    int i;
+    i = 0;
+    int j;
+    while (i < (arraySize - 1)) {
+        int index;
+        index = i;
+        j = i + 1;
+        while (j < arraySize) {
+            if (a[j] < a[index]){
+                index = j;
+            }
+            j = j + 1;
+        }
+        int smallerNumber;
+        smallerNumber = a[index];
+        a[index] = a[i];
+        a[i] = smallerNumber;
+        i = i + 1;
+    }
+}
+
+int binarySearch(int[] arr, int l, int r, int x) {
+    if (r>=l) {
+        int mid;
+        mid = l + (r - l)/2;
+
+        if (arr[mid] == x) {
+            return mid;
+        }
+ 
+        if (arr[mid] > x) {
+            return binarySearch(arr, l, mid - 1, x);
+        }
+ 
+        return binarySearch(arr, mid + 1, r, x);
+    }
+ 
+    return -1;
+}
+
+void main() {
+    int[] a;
+    int arraySize;
+    arraySize = 10;
+    a = new int[10];
+
+    int i;
+    i = 0;
+    int range;
+    range = 20;
+    while (i < arraySize) {
+        a[i] = random(range);
+        i = i + 1;
+    }
+
+    int input;
+    print("Range of random numbers: from 0 to ");
+    print(range - 1);
+    print("\n");
+    print("Give a number: ");
+    input = scanInt();
+    
+    selection_sort(a, arraySize);
+
+    int result;
+    result = binarySearch(a, 0, arraySize - 1, input);
+
+    if (result == -1) {
+        print("The number ");
+        print(input);
+        print(" doesn't exist in the array.\n");
+    } else {
+        print("The number ");
+        print(input);
+        print(" exists in the array.\n");
+    }
+}

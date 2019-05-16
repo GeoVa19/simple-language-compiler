@@ -1,0 +1,24 @@
+void main() {
+	char[] a;
+	char[] b;
+	a = "Hello";
+	b = "World!\n";
+	
+	if (a != b) {
+		print("That's right!\n");
+	}
+	
+	char character1;
+	char character2;
+	
+	character1 = 'a';
+	character2 = 'b';
+	if (character1 < character2) {
+		print("That's right!\n");
+	}
+	
+	int integer;
+	integer = 'A';
+	print(integer); /*A in ASCII is 65*/
+	print('\n');
+}

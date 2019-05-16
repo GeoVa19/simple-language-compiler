@@ -1,0 +1,21 @@
+int mulBy2(int a) {
+	return a*2;
+}
+
+void main() {
+	int[] array;
+	
+	array = new int[3];
+	array[1] = 10;
+	array[2] = mulBy2(array[1]*array[1]*10);
+
+	float floatNumber;
+	floatNumber = 1;
+	
+	print(array[1]);
+	print("\n");
+	print(array[2]);
+	print("\n");
+	print(floatNumber);
+	print("\n");
+}

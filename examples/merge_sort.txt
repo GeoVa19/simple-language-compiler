@@ -1,0 +1,82 @@
+/*The code was adapted from https://www.geeksforgeeks.org/merge-sort/*/
+
+void merge(int[] arr, int l, int m, int r) {
+    /*Find sizes of two subarrays to be merged*/
+    int n1;
+    n1 = m - l + 1;
+    int n2;
+    n2 = r - m;
+ 
+    /*Create temp arrays*/
+    int[] L;
+    L = new int[n1];
+    int[] R;
+    R = new int[n2];
+ 
+    /*Copy data to temp arrays*/
+    int i;
+    i = 0;
+    while (i < n1) {
+        L[i] = arr[l + 1];
+        i = i + 1;
+    }
+    i = 0;
+    while (i < n2){
+        R[i] = arr[m + 1 + i];
+        i = i + 1;
+    }
+ 
+    /* Merge the temp arrays */
+ 
+    /*Initial indexes of first and second subarrays*/
+    i = 0;
+    int j;
+    j = 0;
+ 
+    /*Initial index of merged subarry array*/
+    int k;
+    k = l;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i = i + 1;
+        } else {
+            arr[k] = R[j];
+            j = j + 1;
+        }
+            k = k + 1;
+    }
+ 
+    /*Copy remaining elements of L[] if any*/
+    while (i < n1) {
+        arr[k] = L[i];
+        i = i + 1;
+        k = k + 1;
+    }
+ 
+    /*Copy remaining elements of R[] if any*/
+    while (j < n2) {
+        arr[k] = R[j];
+        j = j + 1;
+        k = k + 1;
+    }
+}
+ 
+/* Main function that sorts arr[l..r] using merge()*/
+void sort(int arr[], int l, int r) {
+    if (l < r) {
+        /*Find the middle point*/
+        int m;
+        m = (l+r)/2;
+        /*Sort first and second halves*/
+        sort(arr, l, m);
+        sort(arr , m+1, r);
+ 
+        /*Merge the sorted halves*/
+        merge(arr, l, m, r);
+    }
+}
+
+void main() {
+
+}

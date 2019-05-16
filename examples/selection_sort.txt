@@ -1,0 +1,55 @@
+void selection_sort(int[] a, int arraySize) {
+    int i;
+    i = 0;
+    int j;
+    while (i < arraySize - 1) {
+        int index;
+        index = i;
+        j = i + 1;
+        while (j < arraySize) {
+            if (a[j] < a[index]){
+                index = j;
+            }
+            j = j + 1;
+        }
+        int smallerNumber;
+        smallerNumber = a[index];
+        a[index] = a[i];
+        a[i] = smallerNumber;
+        i = i + 1;
+    }
+}
+
+void main() {
+    int[] a;
+    int arraySize;
+    arraySize = 5;
+    a = new int[5];
+
+    int i;
+    i = 0;
+    while (i < arraySize) {
+        a[i] = random(100);
+        i = i + 1;
+    }
+
+    print("Before selection sort.\n");
+
+    i = 0;
+    while (i < arraySize) {
+        print(a[i]);
+        print("\n");
+        i = i + 1;
+    }
+
+    selection_sort(a, arraySize);
+    
+    print("After selection sort.\n");
+
+    i = 0;
+    while (i < arraySize) {
+        print(a[i]);
+        print("\n");
+        i = i + 1;
+    }
+}

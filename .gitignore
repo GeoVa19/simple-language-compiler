@@ -1,0 +1,6 @@
+/src/main/java/parser.java
+/src/main/java/sym.java
+/src/main/java/Lexer.java
+/target
+*.class
+intermediate*txt

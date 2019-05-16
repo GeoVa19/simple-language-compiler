@@ -1,0 +1,48 @@
+int collatz(int a) {
+    print(a);
+    print("\n");
+    
+    if (a == 1) {
+        return a;
+    } else if (a%2 == 0) {
+        return collatz(a/2);
+    } else {
+        return collatz(3*a+1);
+    }
+}
+
+void main(){
+	int a;
+	int choice;
+	
+	choice = 0; /*0 : READ INPUT FROM KEYBOARD*/
+	
+	if (choice == 0) {
+		print("Give a positive integer.\n");
+		a = scanInt();
+		while (a <= 0) {
+			print("The number should be positive.\n");
+			print("Try again.\n");
+			a = scanInt();
+		}
+	} else {
+		int range;
+		range = 15;
+		a = random(15);
+	}
+    
+	int i;
+	i = 0;
+	while (i < 10) {
+		print('-');
+		i = i + 1;
+	}
+	
+	print("\n");
+	
+    collatz(a);
+
+    print("Number chosen: ");
+    print(a);
+    print("\n");
+}
