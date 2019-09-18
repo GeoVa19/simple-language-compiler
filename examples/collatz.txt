@@ -12,7 +12,7 @@ int collatz(int a) {
 }
 
 void main(){
-	int a;
+    int a;
 	int choice;
 	
 	choice = 0; /*0 : READ INPUT FROM KEYBOARD*/
